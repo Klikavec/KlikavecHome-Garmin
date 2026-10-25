@@ -1,0 +1,5 @@
+project.manifest = klikavec.manifest.xml
+base.sourcePath = source
+base.resourcePath = resources/strings;resources/klikavec;klikavec-settings
+fenix7s.resourcePath = $(base.resourcePath);resources-launcher-40-40;resources-icons-28
+base.lang.ces = resources-ces

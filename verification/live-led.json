@@ -1,0 +1,23 @@
+[
+  {
+    "stage": "before",
+    "captured_utc": "2026-10-24T18:53:08.991746+00:00",
+    "state": "on",
+    "brightness": 255,
+    "color_temp_kelvin": 6535
+  },
+  {
+    "stage": "after_off",
+    "captured_utc": "2026-10-24T18:53:25.137638+00:00",
+    "state": "off",
+    "brightness": null,
+    "color_temp_kelvin": null
+  },
+  {
+    "stage": "restored",
+    "captured_utc": "2026-10-24T18:53:32.152657+00:00",
+    "state": "on",
+    "brightness": 255,
+    "color_temp_kelvin": 6535
+  }
+]

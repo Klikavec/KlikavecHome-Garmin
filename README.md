@@ -1,3 +1,13 @@
+# Klikavec Home — Garmin Fénix 7S
+
+České rozhraní, šest sekcí, bezpečně ověřované přepínače a cache pro Home Assistant.
+
+**[České README](README-KLIKAVEC.md) · [Instalace Windows/Garmin](INSTALL-WINDOWS.md) · [Výsledky testů](TESTING.md) · [Konfigurace](examples/klikavec-home.json) · [Změny](CHANGES-KLIKAVEC.md)**
+
+Build: `klikavec.jungle`, zařízení `fenix7s`, výstup `KlikavecHome.prg`. Zdrojový upstream, licence a historie jsou zachované. Následuje původní dokumentace GarminHomeAssistant.
+
+---
+
 [Home](README.md) | [Switches](examples/Switches.md) | [Actions](examples/Actions.md) | [Templates](examples/Templates.md) | [Numeric](examples/Numeric.md) | [Select](examples/Select.md) | [Glance](examples/Glance.md) | [Background Service](BackgroundService.md) | [Wi-Fi](Wi-Fi.md) | [HTTP Headers](HTTP_Headers.md) | [Trouble Shooting](TroubleShooting.md) | [Version History](HISTORY.md)
 
 # GarminHomeAssistant

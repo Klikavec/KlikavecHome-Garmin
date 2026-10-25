@@ -1,0 +1,11 @@
+<settings>
+  <setting propertyKey="@Properties.api_key" title="HA přístupový token" prompt="Dlouhodobý token; nesdílej ho"><settingConfig type="alphaNumeric" required="true"/></setting>
+  <setting propertyKey="@Properties.api_url" title="Home Assistant HTTPS API" prompt="https://ha.example.cz/api"><settingConfig type="alphaNumeric" required="true"/></setting>
+  <setting propertyKey="@Properties.config_url" title="Soukromá konfigurace JSON (volitelné)" prompt="Stejný HTTPS host; prázdné = vestavěná"><settingConfig type="alphaNumeric" required="false"/></setting>
+  <group id="headers" title="Volitelné přístupové hlavičky">
+    <setting propertyKey="@Properties.user_http_header1_name" title="Hlavička 1: název"><settingConfig type="alphaNumeric"/></setting>
+    <setting propertyKey="@Properties.user_http_header1_value" title="Hlavička 1: hodnota"><settingConfig type="alphaNumeric"/></setting>
+    <setting propertyKey="@Properties.user_http_header2_name" title="Hlavička 2: název"><settingConfig type="alphaNumeric"/></setting>
+    <setting propertyKey="@Properties.user_http_header2_value" title="Hlavička 2: hodnota"><settingConfig type="alphaNumeric"/></setting>
+  </group>
+</settings>

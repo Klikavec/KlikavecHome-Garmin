@@ -1,0 +1,88 @@
+------------------------------------------------------------------------------
+Executing test configAcceptsBundled...
+PASS
+------------------------------------------------------------------------------
+Executing test configRejectsWrongShape...
+PASS
+------------------------------------------------------------------------------
+Executing test configRejectsInjection...
+PASS
+------------------------------------------------------------------------------
+Executing test configBlocksDangerousWrites...
+PASS
+------------------------------------------------------------------------------
+Executing test unavailableIsNotErrorOrOff...
+PASS
+------------------------------------------------------------------------------
+Executing test staleAndInvalidHiveHidden...
+PASS
+------------------------------------------------------------------------------
+Executing test stableConnectivityUsesFetchAge...
+PASS
+------------------------------------------------------------------------------
+Executing test cachedDataCannotWrite...
+PASS
+------------------------------------------------------------------------------
+Executing test actionRequiresReadback...
+Klikavec states HTTP 200; entities 1; ms 1
+PASS
+------------------------------------------------------------------------------
+Executing test malformedJsonPreservesCache...
+Klikavec states HTTP 200; entities 1; ms 2057772
+PASS
+------------------------------------------------------------------------------
+Executing test responseOrderAndShapeChecked...
+PASS
+------------------------------------------------------------------------------
+Executing test callbacksAfterStopIgnored...
+PASS
+------------------------------------------------------------------------------
+Executing test errorCannotBecomeSuccess...
+Klikavec states HTTP 200; entities 1; ms 0
+PASS
+------------------------------------------------------------------------------
+Executing test doubleTapDoesNotDuplicateWrite...
+PASS
+------------------------------------------------------------------------------
+Executing test malformedConfigExtensionsRejected...
+PASS
+------------------------------------------------------------------------------
+Executing test homeFavoritesAreConfigurable...
+PASS
+------------------------------------------------------------------------------
+Executing test buttonsReachSectionsAndBack...
+PASS
+------------------------------------------------------------------------------
+Executing test remoteConfigPrimitivesDoNotCrash...
+PASS
+------------------------------------------------------------------------------
+Executing test offlineResponsePreservesReading...
+Klikavec states HTTP -1; entities 1; ms 2058121
+PASS
+
+==============================================================================
+RESULTS
+Test:                               Status:
+configAcceptsBundled                PASS
+configRejectsWrongShape             PASS
+configRejectsInjection              PASS
+configBlocksDangerousWrites         PASS
+unavailableIsNotErrorOrOff          PASS
+staleAndInvalidHiveHidden           PASS
+stableConnectivityUsesFetchAge      PASS
+cachedDataCannotWrite               PASS
+actionRequiresReadback              PASS
+malformedJsonPreservesCache         PASS
+responseOrderAndShapeChecked        PASS
+callbacksAfterStopIgnored           PASS
+errorCannotBecomeSuccess            PASS
+doubleTapDoesNotDuplicateWrite      PASS
+malformedConfigExtensionsRejected   PASS
+homeFavoritesAreConfigurable        PASS
+buttonsReachSectionsAndBack         PASS
+remoteConfigPrimitivesDoNotCrash    PASS
+offlineResponsePreservesReading     PASS
+Ran 19 tests
+
+PASSED (passed=19, failed=0, errors=0)
+SDK_MONKEYDO_EXIT=1

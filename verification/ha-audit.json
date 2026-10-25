@@ -1,0 +1,349 @@
+{
+  "captured_utc": "2026-10-24T18:45:18.864795+00:00",
+  "entity_count": 49,
+  "rows": [
+    {
+      "age_seconds": 86974,
+      "entity_id": "binary_sensor.internet_pripojeni",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 5,
+      "entity_id": "binary_sensor.ping_internet_google",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 9,
+      "entity_id": "binary_sensor.ping_isp_gateway",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 9,
+      "entity_id": "binary_sensor.ping_router_ax73",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 260,
+      "entity_id": "binary_sensor.termostat_elektrobock_letni_rezim",
+      "exists": true,
+      "state": "off",
+      "unit": ""
+    },
+    {
+      "age_seconds": 260,
+      "entity_id": "binary_sensor.termostat_elektrobock_pozadavek_na_topeni",
+      "exists": true,
+      "state": "off",
+      "unit": ""
+    },
+    {
+      "age_seconds": 87011,
+      "entity_id": "input_number.bzzzt_ul_1_humidity_top",
+      "exists": true,
+      "state": "47.46",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 87011,
+      "entity_id": "input_number.bzzzt_ul_1_temperature_top",
+      "exists": true,
+      "state": "26.71",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 882,
+      "entity_id": "light.led_pasek",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 53115,
+      "entity_id": "light.zvonek_panel_podsviceni",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86937,
+      "entity_id": "sensor.0xa4c1381b7ac8eef7_soil_moisture",
+      "exists": true,
+      "state": "69",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 29,
+      "entity_id": "sensor.0xa4c138b55a957e07_humidity",
+      "exists": true,
+      "state": "65.55",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 30,
+      "entity_id": "sensor.0xa4c138b55a957e07_temperature",
+      "exists": true,
+      "state": "9.68",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 6720,
+      "entity_id": "sensor.bambusy_1_soil_moisture",
+      "exists": true,
+      "state": "19",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 86980,
+      "entity_id": "sensor.bazen_vykon",
+      "exists": true,
+      "state": "0.0",
+      "unit": "W"
+    },
+    {
+      "age_seconds": 364,
+      "entity_id": "sensor.ds218play_drive_1_stav",
+      "exists": true,
+      "state": "normal",
+      "unit": ""
+    },
+    {
+      "age_seconds": 364,
+      "entity_id": "sensor.ds218play_drive_2_stav",
+      "exists": true,
+      "state": "normal",
+      "unit": ""
+    },
+    {
+      "age_seconds": 364,
+      "entity_id": "sensor.ds218play_volume_1_pouzity_objem",
+      "exists": true,
+      "state": "78.5",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 364,
+      "entity_id": "sensor.ds218play_volume_1_stav",
+      "exists": true,
+      "state": "normal",
+      "unit": ""
+    },
+    {
+      "age_seconds": 321,
+      "entity_id": "sensor.eaton_3s_550_ups_nabiti_baterie",
+      "exists": true,
+      "state": "100",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 321,
+      "entity_id": "sensor.eaton_3s_550_ups_stav",
+      "exists": true,
+      "state": "Online",
+      "unit": ""
+    },
+    {
+      "age_seconds": 321,
+      "entity_id": "sensor.eaton_3s_550_ups_zatez",
+      "exists": true,
+      "state": "8",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.meteostanice_temperature_1",
+      "exists": true,
+      "state": "10.8",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 5,
+      "entity_id": "sensor.ping_google_rtt_avg",
+      "exists": true,
+      "state": "6.928",
+      "unit": "ms"
+    },
+    {
+      "age_seconds": 86974,
+      "entity_id": "sensor.stav_site",
+      "exists": true,
+      "state": "OK",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86,
+      "entity_id": "sensor.teplomer_ciri_pokojik_humidity",
+      "exists": true,
+      "state": "55.85",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 86,
+      "entity_id": "sensor.teplomer_ciri_pokojik_temperature",
+      "exists": true,
+      "state": "23.51",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 740,
+      "entity_id": "sensor.teplomer_loznice_humidity",
+      "exists": true,
+      "state": "58.61",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 740,
+      "entity_id": "sensor.teplomer_loznice_temperature",
+      "exists": true,
+      "state": "23.41",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 1616,
+      "entity_id": "sensor.teplomer_predsin_humidity",
+      "exists": true,
+      "state": "58.39",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 1616,
+      "entity_id": "sensor.teplomer_predsin_temperature",
+      "exists": true,
+      "state": "23.24",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 531,
+      "entity_id": "sensor.teplomer_sklep_humidity",
+      "exists": true,
+      "state": "56.28",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 532,
+      "entity_id": "sensor.teplomer_sklep_temperature",
+      "exists": true,
+      "state": "12.3",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 260,
+      "entity_id": "sensor.termostat_elektrobock_aktualni_teplota",
+      "exists": true,
+      "state": "23.7",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 260,
+      "entity_id": "sensor.termostat_elektrobock_pozadovana_teplota",
+      "exists": true,
+      "state": "23.5",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 321,
+      "entity_id": "sensor.ups_odhadovana_vydrz",
+      "exists": true,
+      "state": "48",
+      "unit": "min"
+    },
+    {
+      "age_seconds": 86980,
+      "entity_id": "sensor.vodarna_vykon",
+      "exists": true,
+      "state": "0.0",
+      "unit": "W"
+    },
+    {
+      "age_seconds": 86974,
+      "entity_id": "sensor.vypadky_za_7_dni",
+      "exists": true,
+      "state": "0",
+      "unit": ""
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_daily_rain",
+      "exists": true,
+      "state": "0.5",
+      "unit": "mm"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_indoor_humidity",
+      "exists": true,
+      "state": "50",
+      "unit": "%"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_indoor_temperature",
+      "exists": true,
+      "state": "25.5",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_outdoor_temperature",
+      "exists": true,
+      "state": "4.9",
+      "unit": "°C"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_relative_pressure",
+      "exists": true,
+      "state": "1005.3",
+      "unit": "hPa"
+    },
+    {
+      "age_seconds": 22,
+      "entity_id": "sensor.ws2900_v2_01_18_wind_speed",
+      "exists": true,
+      "state": "0.0",
+      "unit": "km/h"
+    },
+    {
+      "age_seconds": 11286,
+      "entity_id": "switch.0xa4c13800486fffff",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86937,
+      "entity_id": "switch.0xa4c138bb867ffa04",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86980,
+      "entity_id": "switch.zasuvka_1",
+      "exists": true,
+      "state": "off",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86980,
+      "entity_id": "switch.zasuvka_2",
+      "exists": true,
+      "state": "off",
+      "unit": ""
+    },
+    {
+      "age_seconds": 86937,
+      "entity_id": "switch.zasuvka_venku",
+      "exists": true,
+      "state": "on",
+      "unit": ""
+    }
+  ]
+}

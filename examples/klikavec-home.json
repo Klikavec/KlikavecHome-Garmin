@@ -1,0 +1,422 @@
+{
+  "title": "Klikavec Home",
+  "version": 1,
+  "theme": {
+    "ok": 65280,
+    "warning": 16755200,
+    "error": 16711680,
+    "info": 43775
+  },
+  "items": [
+    {
+      "type": "group",
+      "name": "Domov",
+      "title": "Domov",
+      "icon": "home",
+      "items": [
+        {
+          "type": "info",
+          "name": "Venku",
+          "entity": "sensor.ws2900_v2_01_18_outdoor_temperature",
+          "unit": "°C",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "Obývák",
+          "entity": "sensor.ws2900_v2_01_18_indoor_temperature",
+          "unit": "°C",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "Internet",
+          "entity": "binary_sensor.internet_pripojeni",
+          "unit": "",
+          "status": "connectivity"
+        },
+        {
+          "type": "info",
+          "name": "UPS",
+          "entity": "sensor.eaton_3s_550_ups_nabiti_baterie",
+          "unit": "%",
+          "low": 30
+        },
+        {
+          "type": "info",
+          "name": "Topení",
+          "entity": "binary_sensor.termostat_elektrobock_pozadavek_na_topeni",
+          "unit": "",
+          "status": "heating"
+        },
+        {
+          "type": "toggle",
+          "name": "LED pásek",
+          "entity": "light.led_pasek",
+          "favorite": true
+        },
+        {
+          "type": "toggle",
+          "name": "Zásuvka venku",
+          "entity": "switch.zasuvka_venku",
+          "favorite": true
+        },
+        {
+          "type": "link",
+          "name": "Detail klimatu",
+          "target": "Klima"
+        }
+      ],
+      "home": true
+    },
+    {
+      "type": "group",
+      "name": "Ovládání",
+      "title": "Ovládání",
+      "icon": "power",
+      "items": [
+        {
+          "type": "toggle",
+          "name": "LED pásek",
+          "entity": "light.led_pasek"
+        },
+        {
+          "type": "toggle",
+          "name": "Podsvícení zvonku",
+          "entity": "light.zvonek_panel_podsviceni"
+        },
+        {
+          "type": "toggle",
+          "name": "Zásuvka venku",
+          "entity": "switch.zasuvka_venku"
+        },
+        {
+          "type": "toggle",
+          "name": "Zásuvka sklep",
+          "entity": "switch.0xa4c13800486fffff"
+        },
+        {
+          "type": "toggle",
+          "name": "Zigbee zásuvka 2",
+          "entity": "switch.0xa4c138bb867ffa04"
+        },
+        {
+          "type": "group",
+          "name": "Pokročilé",
+          "title": "Pokročilé",
+          "icon": "warning",
+          "items": [
+            {
+              "type": "toggle",
+              "name": "Bazénové čerpadlo",
+              "entity": "switch.zasuvka_1",
+              "confirm": true
+            },
+            {
+              "type": "info",
+              "name": "Bazén příkon",
+              "entity": "sensor.bazen_vykon",
+              "unit": "W"
+            },
+            {
+              "type": "info",
+              "name": "Vodárna · jen čtení",
+              "entity": "switch.zasuvka_2",
+              "unit": ""
+            },
+            {
+              "type": "info",
+              "name": "Vodárna příkon",
+              "entity": "sensor.vodarna_vykon",
+              "unit": "W"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "Klima",
+      "title": "Klima",
+      "icon": "temperature",
+      "items": [
+        {
+          "type": "info",
+          "name": "Obývák",
+          "entity": "sensor.ws2900_v2_01_18_indoor_temperature",
+          "unit": "°C",
+          "humidity": "sensor.ws2900_v2_01_18_indoor_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Ložnice",
+          "entity": "sensor.teplomer_loznice_temperature",
+          "unit": "°C",
+          "humidity": "sensor.teplomer_loznice_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Dětský pokoj",
+          "entity": "sensor.teplomer_ciri_pokojik_temperature",
+          "unit": "°C",
+          "humidity": "sensor.teplomer_ciri_pokojik_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Předsíň",
+          "entity": "sensor.teplomer_predsin_temperature",
+          "unit": "°C",
+          "humidity": "sensor.teplomer_predsin_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Sklep",
+          "entity": "sensor.teplomer_sklep_temperature",
+          "unit": "°C",
+          "humidity": "sensor.teplomer_sklep_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Sauna",
+          "entity": "sensor.0xa4c138b55a957e07_temperature",
+          "unit": "°C",
+          "humidity": "sensor.0xa4c138b55a957e07_humidity",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "BT725 aktuální",
+          "entity": "sensor.termostat_elektrobock_aktualni_teplota",
+          "unit": "°C",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "BT725 požadovaná",
+          "entity": "sensor.termostat_elektrobock_pozadovana_teplota",
+          "unit": "°C"
+        },
+        {
+          "type": "info",
+          "name": "Požadavek topení",
+          "entity": "binary_sensor.termostat_elektrobock_pozadavek_na_topeni",
+          "unit": "",
+          "status": "heating"
+        },
+        {
+          "type": "info",
+          "name": "Letní režim",
+          "entity": "binary_sensor.termostat_elektrobock_letni_rezim",
+          "unit": ""
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "Stav domu",
+      "title": "Stav domu",
+      "icon": "network",
+      "items": [
+        {
+          "type": "info",
+          "name": "Síť",
+          "entity": "sensor.stav_site",
+          "unit": "",
+          "status": "health"
+        },
+        {
+          "type": "info",
+          "name": "Router AX73",
+          "entity": "binary_sensor.ping_router_ax73",
+          "unit": "",
+          "status": "connectivity"
+        },
+        {
+          "type": "info",
+          "name": "ISP gateway",
+          "entity": "binary_sensor.ping_isp_gateway",
+          "unit": "",
+          "status": "connectivity"
+        },
+        {
+          "type": "info",
+          "name": "Internet Google",
+          "entity": "binary_sensor.ping_internet_google",
+          "unit": "",
+          "status": "connectivity"
+        },
+        {
+          "type": "info",
+          "name": "Odezva Google",
+          "entity": "sensor.ping_google_rtt_avg",
+          "unit": "ms",
+          "high": 100
+        },
+        {
+          "type": "info",
+          "name": "Výpadky / 7 dní",
+          "entity": "sensor.vypadky_za_7_dni",
+          "unit": "",
+          "high": 0
+        },
+        {
+          "type": "info",
+          "name": "UPS stav",
+          "entity": "sensor.eaton_3s_550_ups_stav",
+          "unit": "",
+          "status": "health"
+        },
+        {
+          "type": "info",
+          "name": "UPS baterie",
+          "entity": "sensor.eaton_3s_550_ups_nabiti_baterie",
+          "unit": "%",
+          "low": 30
+        },
+        {
+          "type": "info",
+          "name": "UPS výdrž",
+          "entity": "sensor.ups_odhadovana_vydrz",
+          "unit": "min",
+          "low": 10
+        },
+        {
+          "type": "info",
+          "name": "UPS zátěž",
+          "entity": "sensor.eaton_3s_550_ups_zatez",
+          "unit": "%",
+          "high": 80
+        },
+        {
+          "type": "info",
+          "name": "NAS svazek",
+          "entity": "sensor.ds218play_volume_1_stav",
+          "unit": "",
+          "status": "health"
+        },
+        {
+          "type": "info",
+          "name": "NAS obsazeno",
+          "entity": "sensor.ds218play_volume_1_pouzity_objem",
+          "unit": "%",
+          "high": 85
+        },
+        {
+          "type": "info",
+          "name": "NAS disk 1",
+          "entity": "sensor.ds218play_drive_1_stav",
+          "unit": "",
+          "status": "health"
+        },
+        {
+          "type": "info",
+          "name": "NAS disk 2",
+          "entity": "sensor.ds218play_drive_2_stav",
+          "unit": "",
+          "status": "health"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "Zahrada",
+      "title": "Zahrada",
+      "icon": "leaf",
+      "items": [
+        {
+          "type": "info",
+          "name": "Venku",
+          "entity": "sensor.ws2900_v2_01_18_outdoor_temperature",
+          "unit": "°C",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "Vítr",
+          "entity": "sensor.ws2900_v2_01_18_wind_speed",
+          "unit": "km/h",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "Déšť dnes",
+          "entity": "sensor.ws2900_v2_01_18_daily_rain",
+          "unit": "mm"
+        },
+        {
+          "type": "info",
+          "name": "Tlak",
+          "entity": "sensor.ws2900_v2_01_18_relative_pressure",
+          "unit": "hPa",
+          "maxAge": 3600
+        },
+        {
+          "type": "info",
+          "name": "Bazén",
+          "entity": "sensor.meteostanice_temperature_1",
+          "unit": "°C",
+          "maxAge": 7200
+        },
+        {
+          "type": "info",
+          "name": "Bambusy / půda 1",
+          "entity": "sensor.bambusy_1_soil_moisture",
+          "unit": "%",
+          "low": 20,
+          "maxAge": 86400
+        },
+        {
+          "type": "info",
+          "name": "Půda 2",
+          "entity": "sensor.0xa4c1381b7ac8eef7_soil_moisture",
+          "unit": "%",
+          "low": 20,
+          "maxAge": 86400
+        },
+        {
+          "type": "info",
+          "name": "Úl 1 · experiment",
+          "entity": "input_number.bzzzt_ul_1_temperature_top",
+          "unit": "°C",
+          "maxAge": 3600,
+          "minValid": 0,
+          "maxValid": 60
+        },
+        {
+          "type": "info",
+          "name": "Úl 1 vlhkost · exp.",
+          "entity": "input_number.bzzzt_ul_1_humidity_top",
+          "unit": "%",
+          "maxAge": 3600,
+          "minValid": 1,
+          "maxValid": 100
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "Nastavení",
+      "title": "Nastavení",
+      "icon": "settings",
+      "items": [
+        {
+          "type": "refresh",
+          "name": "Obnovit data"
+        },
+        {
+          "type": "config",
+          "name": "Načíst konfiguraci"
+        },
+        {
+          "type": "about",
+          "name": "Připojení a nápověda"
+        }
+      ]
+    }
+  ]
+}
