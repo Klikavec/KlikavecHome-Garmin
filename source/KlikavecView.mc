@@ -113,7 +113,7 @@ class KlikavecView extends WatchUi.View {
         else if("network".equals(icon)) {
             dc.drawRectangle(104,83,32,20);dc.drawLine(120,103,120,122);dc.drawLine(86,122,154,122);
             dc.drawRectangle(77,122,20,16);dc.drawRectangle(110,122,20,16);dc.drawRectangle(143,122,20,16);
-        } else if("leaf".equals(icon)) {dc.drawEllipse(100,80,40,56);dc.drawLine(106,139,132,91);}
+        } else if("leaf".equals(icon)) {dc.drawEllipse(120,108,20,28);dc.drawLine(106,139,132,91);}
         else if("settings".equals(icon)) {dc.drawCircle(120,108,26);dc.drawCircle(120,108,9);}
         else {dc.drawCircle(120,111,25);dc.setColor(Graphics.COLOR_BLACK,Graphics.COLOR_BLACK);dc.fillRectangle(113,80,14,25);dc.setColor(accent,Graphics.COLOR_BLACK);dc.fillRectangle(117,80,6,31);}
         var subtitle="Klima".equals(sec["name"]) ? "Teploty · vlhkost · BT725" :

@@ -1,5 +1,9 @@
 # Změny Klikavec Home
 
+## 25. 10. 2026 — r3, ikona Zahrady
+
+- Opravené parametry elipsy listu: Garmin API používá střed a poloměry. Ikona zůstává pod hlavičkou a nepřekrývá název ani stav aktualizace. Ostatní obrazovky, nastavení a komunikace se nemění.
+
 ## 25. 10. 2026 — oprava odpovědi přes Garmin Connect
 
 - Po prvním testu fyzických hodinek odstraněn nesoulad očekávaného JSON s `text/plain` odpovědí HA template. Simulátor původní kombinaci přijal, fyzický přenos hlásil chybnou odpověď JSON.

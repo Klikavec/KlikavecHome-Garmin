@@ -4,6 +4,8 @@ Provedeno 24.–25. 10. 2026. Fyzický Garmin ani Samsung nebyly připojené k a
 
 ## Oprava po prvním fyzickém testu — 25. 10. 2026
 
+Majitel následně potvrdil, že verze r2 načítá živá data na fyzickém Fénix 7S přes Samsung/Garmin Connect. Jeho fotografie ukázala překrytí nadpisu ikonou Zahrady. Oprava r3 mění pouze parametry `drawEllipse` na střed (120,108) a poloměry (20,28), tedy rozsah x=100–140/y=80–136 pod hlavičkou končící y=72. Souřadnice žilky listu zůstávají beze změny. Vizuální kontrola je doložená `screenshots/26-zahrada-ikona-opravena.png`; síťová logika se v r3 nemění. Tento snímek vznikl v obnoveném izolovaném simulátoru bez internetové cesty, proto ukazuje offline stav; není novým testem spojení s HA. Fotografie majitele se do veřejného repozitáře nekopírují.
+
 Majitel po instalaci hlásil nejprve timeout a následně `Chybná odpověď JSON`. Živý kontrolní POST `/api/template` vrátil HTTP 200 a platné tělo, ale MIME `text/plain; charset=utf-8`. Původní kód požadoval JSON, což simulátor toleroval; přenos Garmin Connect má samostatnou implementaci. Čtecí transport nyní explicitně očekává text/plain a model validuje kompaktní verzovanou odpověď. Nový živý read-only test potvrdil 7 správných řádků Domova, HTTP 200, 323 B v daném běhu. Nevznikl žádný zápis do HA.
 
 Regresní sada: **21 PASS, 0 FAIL, 0 ERROR**, včetně platných i chybných textových odpovědí; její samostatný raw výstup je `verification/plain-response-tests.log`. SDK monkeydo nadále vrací exit 1 i po všech PASS. Původních 19 testů a jejich historický log níže se zachovávají. Úspěch nové verze na fyzických hodinkách musí potvrdit majitel po novém spuštění; není odvozován ze simulátoru.
