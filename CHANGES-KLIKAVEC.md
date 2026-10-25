@@ -1,5 +1,13 @@
 # Změny Klikavec Home
 
+## 25. 10. 2026 — oprava odpovědi přes Garmin Connect
+
+- Po prvním testu fyzických hodinek odstraněn nesoulad očekávaného JSON s `text/plain` odpovědí HA template. Simulátor původní kombinaci přijal, fyzický přenos hlásil chybnou odpověď JSON.
+- Šablony se čtou jako validovaný text KH1; konfigurace zůstává JSON. Autorizace, allowlist a serverové potvrzení akcí se nemění.
+- Přidané regresní testy textové odpovědi, české jednotky, prázdné jednotky, HTML, chybných čísel, přetečení, řádků navíc a cizích ID.
+
+## První MVP
+
 - Nový vstupní bod, UUID a cílený build `fenix7s`; původní aplikace a MIT licence zachované.
 - Šest českých sekcí, stavový přehled, oblíbené akce, detaily vlhkostí, IT semafor a zahrada.
 - Komponenty `StatusIndicator`, `MetricTile`, `ActionTile`, `ToggleRow`, `SectionHeader`, `ConfirmationDialog`.

@@ -71,7 +71,7 @@ class KlikavecModel {
                 states[ids[k]]=[row[0],row[1],row[2]];received[ids[k]]=row[3];
             }
         }
-        service=new HomeAssistantService();
+        service=new KlikavecService();
     }
 
     function configured() {
@@ -101,17 +101,20 @@ class KlikavecModel {
         if (!configured()) { message="Nastav HTTPS a token"; offline=true; WatchUi.requestUpdate(); return; }
         requested=[]; collect(items,requested);
         if (requested.size()==0) { return; }
-        // Upstream authenticated POST transport, with a compact HA template response.
+        // HA /template returns text/plain. Match it explicitly for Garmin Connect on phones.
         var ids="[";
         for(var i=0;i<requested.size();i++) { if(i>0){ids+=",";} ids+="'"+requested[i]+"'"; }
         ids+="]";
         var template="{% set ns=namespace(rows=[]) %}{% for id in "+ids+" %}"+
             "{% set e=states[id] %}{% set age=-1 %}{% if e is defined and e is not none %}"+
             "{% set age=(as_timestamp(now())-as_timestamp(e.last_reported,as_timestamp(e.last_updated)))|int %}{% endif %}"+
-            "{% set ns.rows=ns.rows+[[id,states(id),state_attr(id,'unit_of_measurement') or '',age]] %}"+
-            "{% endfor %}{{ns.rows|tojson}}";
+            "{% set v=states(id) %}{% set u=state_attr(id,'unit_of_measurement') or '' %}"+
+            "{% if '|' in v or '\\n' in v or '\\r' in v or '|' in u or '\\n' in u or '\\r' in u %}"+
+            "{% set v='unknown' %}{% set u='' %}{% endif %}"+
+            "{% set ns.rows=ns.rows+[[id,v,u,age|string]|join('|')] %}"+
+            "{% endfor %}{{'KH1\\n' ~ (ns.rows|join('\\n'))}}";
         busy=true; requestTime=System.getTimer(); message="Načítání…";
-        try {service.callEntity(Settings.getApiUrl()+"/template",{"template"=>template},method(:onStates));}
+        try {service.callTemplate(Settings.getApiUrl()+"/template",{"template"=>template},method(:onStates));}
         catch(e){busy=false;offline=true;message="Požadavek selhal";pending=null;}
         WatchUi.requestUpdate();
     }
@@ -120,6 +123,7 @@ class KlikavecModel {
         if(stopped){return;}
         System.println("Klikavec states HTTP "+code+"; entities "+requested.size()+"; ms "+(System.getTimer()-requestTime));
         busy=false;
+        if(code==200 && data instanceof Lang.String) {data=parseStates(data);}
         if (code==200 && validResponse(data)) {
             var now=Time.now().value();
             for(var i=0;i<data.size();i++) {
@@ -134,12 +138,44 @@ class KlikavecModel {
         } else {
             offline=true;
             if(code==401 || code==403) {message="Ověř token / přístup";}
-            else if(code==200 || code==Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE) {message="Chybná odpověď JSON";}
+            else if(code==200 || code==Communications.INVALID_HTTP_BODY_IN_NETWORK_RESPONSE) {message="Chybná odpověď dat · "+code;}
             else { message="Offline · kód "+code; }
             pending=null; desired=null;
         }
         WatchUi.requestUpdate();
         if(refreshAfter) { refreshAfter=false; getKlikavecApp().refreshVisible(); }
+    }
+
+    function splitFields(text,delimiter,limit) {
+        // String.split is absent in the Fenix 7S runtime even with a newer SDK.
+        var result=[];var rest=text;
+        while(true) {
+            var index=rest.find(delimiter);
+            if(index==null) {result.add(rest);break;}
+            result.add(rest.substring(0,index));
+            if(result.size()>=limit) {return null;}
+            rest=rest.substring(index+1,rest.length());
+        }
+        return result;
+    }
+    function parseStates(text) {
+        if(text.length()>8192 || text.length()<4 || !"KH1\n".equals(text.substring(0,4))) {return null;}
+        var lines=splitFields(text.substring(4,text.length()),"\n",requested.size());var rows=[];
+        if(lines==null || lines.size()!=requested.size()) {return null;}
+        for(var i=0;i<lines.size();i++) {
+            var fields=splitFields(lines[i],"|",4);
+            if(fields==null || fields.size()!=4) {return null;}
+            var age=fields[3];
+            if(age.length()==0 || age.length()>10) {return null;}
+            for(var j=0;j<age.length();j++) {
+                var c=age.substring(j,j+1);
+                if("0123456789".find(c)==null && !(j==0 && "-".equals(c))) {return null;}
+            }
+            var number=age.toNumber();
+            if(number==null || number< -1 || !number.toString().equals(age)) {return null;}
+            rows.add([fields[0],fields[1],fields[2],number]);
+        }
+        return rows;
     }
 
     function validResponse(data) {

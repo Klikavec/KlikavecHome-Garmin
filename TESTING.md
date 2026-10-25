@@ -2,6 +2,12 @@
 
 Provedeno 24.–25. 10. 2026. Fyzický Garmin ani Samsung nebyly připojené k automatizovanému testu. Níže jsou oddělené důkazy z oficiálního simulátoru, živého HA a kroky zbývající majiteli.
 
+## Oprava po prvním fyzickém testu — 25. 10. 2026
+
+Majitel po instalaci hlásil nejprve timeout a následně `Chybná odpověď JSON`. Živý kontrolní POST `/api/template` vrátil HTTP 200 a platné tělo, ale MIME `text/plain; charset=utf-8`. Původní kód požadoval JSON, což simulátor toleroval; přenos Garmin Connect má samostatnou implementaci. Čtecí transport nyní explicitně očekává text/plain a model validuje kompaktní verzovanou odpověď. Nový živý read-only test potvrdil 7 správných řádků Domova, HTTP 200, 323 B v daném běhu. Nevznikl žádný zápis do HA.
+
+Regresní sada: **21 PASS, 0 FAIL, 0 ERROR**, včetně platných i chybných textových odpovědí; její samostatný raw výstup je `verification/plain-response-tests.log`. SDK monkeydo nadále vrací exit 1 i po všech PASS. Původních 19 testů a jejich historický log níže se zachovávají. Úspěch nové verze na fyzických hodinkách musí potvrdit majitel po novém spuštění; není odvozován ze simulátoru.
+
 ## Sestavení a prostředí
 
 Oficiální Connect IQ SDK **9.3.0**, JDK **17**, oficiální profil **`fenix7s`**. Profil potvrzuje `round-240x240`, MIP `ARGB2222` (64 barev), limit watch-app 786432 B a glance 65536 B. Stejný produkt obsahuje upstream manifest. Sapphire Solar je varianta tohoto profilu; cílem není `fenix7spro`.

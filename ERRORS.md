@@ -23,6 +23,8 @@
 
 ## [CX] 2026-10-24 — Nativní SET a snímání UI
 
+Pozdější fyzický test 25. 10.: simulátor toleroval JSON očekávání pro HA template vracející text/plain. Oprava výslovně používá text/plain s verzovaným validovaným KH1 formátem. Fénix 7S runtime navíc nemá String.split navzdory dokumentaci nového SDK; nativní regresní test chybu zachytil a helper používá find/substring. Příště ověřit skutečný MIME i dostupnost metod v cílové VM a oddělovat simulátorové výsledky od Samsung/Garmin Connect.
+
 - Ve veřejném popisu formátu SET byl prostřední typ chybně uvedený jako `0xB0`; skutečný parser i Garmin používají `0x0B`. Nezávislý round-trip test odhalil a opravil serializer před předáním.
 - Hlavičky uvnitř skupiny nového settings JSON nejsou plochý seznam. Generátor sideload nastavení proto čte přímo XML Application Properties a neposílá token přes CLI argument.
 - První automatizace nativního GTK Save Screenshot neměla dokončený dialog a narušila následné UI kroky. LED byla bezprostředně vrácena do původního stavu. Finální ověřený cyklus je samostatně zaznamenaný v `verification/live-led.json`: on/off/on se zachováním jasu a teploty světla. Zachytávání celého simulátorového okna přes X11 nemění fokus ani stav aplikace.

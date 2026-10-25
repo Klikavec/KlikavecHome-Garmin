@@ -1,5 +1,11 @@
 # Projektová rozhodnutí
 
+## [CX] 2026-10-25 — MIME template odpovědi
+
+- Rozhodnutí: HA `/api/template` číst jako text/plain přes KlikavecService, s krátkým validovaným KH1 formátem. Důvod: HA skutečně vrací text/plain, původní JSON zpracování prošlo simulátorem, ale majitel hlásil chybu na fyzických hodinkách přes Garmin Connect.
+- Odmítnuto: měnit HA/proxy jen kvůli Content-Type nebo vkládat obecný JSON parser na hodinky. JSON konfigurace a původní transport akcí zůstávají; odpovědi se přijímají pouze po validaci celé sekce.
+- Fénix 7S runtime nemá String.split, přestože jej nový SDK dokumentuje. Používá se omezené rozdělení přes find/substring, ověřované nativními testy.
+
 ## [CX] 2026-10-25 — Klikavec Home MVP
 
 - Rozhodnutí: vlastní vstupní bod a manifest, zachovaný upstream transport/Settings, historie a MIT licence. Důvod: funkční Garmin aplikace s novým UI bez přepsání již fungující komunikace.

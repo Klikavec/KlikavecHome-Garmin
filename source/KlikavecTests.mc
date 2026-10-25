@@ -8,6 +8,7 @@ class KlikavecFakeService {
     var payload;
     function initialize() {}
     function callEntity(u,d,callback) {calls++;url=u;payload=d;}
+    function callTemplate(u,d,callback) {callEntity(u,d,callback);}
 }
 
 (:test)
@@ -147,4 +148,23 @@ function offlineResponsePreservesReading(logger) {
     var m=new KlikavecTestModel();m.states["sensor.test"]=["21","°C",0];m.requested=["sensor.test"];
     m.onStates(-1,null);
     return m.offline && !m.busy && "21".equals(m.states["sensor.test"][0]);
+}
+
+(:test)
+function plainTemplateResponseAccepted(logger) {
+    var m=new KlikavecTestModel();m.requested=["sensor.test","light.led_pasek"];
+    m.onStates(200,"KH1\nsensor.test|21.5|°C|0\nlight.led_pasek|on||12");
+    return !m.offline && "21.5".equals(m.states["sensor.test"][0]) && "on".equals(m.states["light.led_pasek"][0]);
+}
+(:test)
+function badPlainResponsePreservesCache(logger) {
+    var m=new KlikavecTestModel();m.requested=["sensor.test"];m.states["sensor.test"]=["21","°C",0];
+    var invalid=["<html>login</html>","KH1\nsensor.test|22|°C|oops","KH1\nsensor.test|22|°C|1.5",
+        "KH1\nsensor.test|22|°C|2147483648","KH1\nsensor.test|22|°C|-2","KH1\nsensor.other|22|°C|0",
+        "KH1\nsensor.test|22|°C|0\n","KH1\nsensor.test|22|bad|unit|0"];
+    for(var i=0;i<invalid.size();i++) {
+        m.onStates(200,invalid[i]);
+        if(!m.offline || !"21".equals(m.states["sensor.test"][0])) {return false;}
+    }
+    return true;
 }

@@ -8,6 +8,7 @@ Výchozí commit `35d7adf` z `house-of-abbey/GarminHomeAssistant`, celá Git his
 
 - `KlikavecApp`: životní cyklus a napojení na upstream App/Settings. Při změně nastavení odstaví starý model, takže jeho opožděná odpověď neovlivní nový.
 - `KlikavecModel`: agregovaný read-only HA template pro aktuální obrazovku, cache po jednotlivých entitách a ověřené akce přes původní transport. Service HTTP 200 samo nestačí; následuje nový dotaz na skutečný stav. Chybějící/prázdná odpověď se nepřekládá na odhadnutý úspěch. Neúspěšný zápis se neopakuje.
+- `KlikavecService`: dědí původní transport akcí; pro `/api/template` výslovně žádá `text/plain`, jak ho HA vrací. Čtení používá verzovaný kompaktní text KH1 s řádky `entity|stav|jednotka|stáří`. Oddělovače a nové řádky ve zdrojové hodnotě vedou k `unknown`, nikoli k vložení dalšího řádku. Model kontroluje délku, počet/přesné pořadí ID, počet polí a celé nezáporné stáří nebo -1. Neplatná odpověď zachová cache. JSON konfigurace a nativní nastavení se nemění.
 - `KlikavecConfig`: kontrola tvaru a limitů JSON na hodinkách, ochrana proti vložení template kódu přes entity ID a allowlist šesti ověřených přepínačů. Neobsahuje tajné hodnoty.
 - `KlikavecView` + `KlikavecComponents`: čitelné komponenty pro 240 × 240, měření skutečné šířky textu, stránkovaný úplný název a navigace Garmin BehaviorDelegate.
 - `KlikavecGlanceView`: malý cache-only proces, bez sítě, tokenu, konfigurace nebo časovače.
